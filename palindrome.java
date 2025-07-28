@@ -1,19 +1,26 @@
-class palindrome{
+// write a simple palindrome program in Java
+// Program to check if a number is a palindrome
+import java.util.Scanner;   
+public class Palindrome{
     public static void main(String[] args) {
-        String str = "madam";
-        boolean isPalindrome = true;
-
-        for (int i = 0; i < str.length() / 2; i++) {
-            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
-            }
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();
+        
+        // Check if the number is a palindrome
+        int originalNum = num;
+        int reversedNum = 0;
+        
+        while (num > 0) {
+            int digit = num % 10; // Get the last digit
+            reversedNum = reversedNum * 10 + digit; // Build the reversed number
+            num /= 10; // Remove the last digit
         }
-
-        if (isPalindrome) {
-            System.out.println(str + " is a palindrome.");
+        
+        if (originalNum == reversedNum) {
+            System.out.println(originalNum + " is a palindrome.");
         } else {
-            System.out.println(str + " is not a palindrome.");
+            System.out.println(originalNum + " is not a palindrome.");
         }
     }
 }
